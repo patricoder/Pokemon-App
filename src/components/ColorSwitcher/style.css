@@ -1,0 +1,16 @@
+
+
+.toggle-switch .switch {
+  
+}
+
+.toggle-switch .switch::before {
+  
+}
+
+.toggle-switch input[type="checkbox"]:checked+.switch::before {
+  
+}
+
+.toggle-switch input[type="checkbox"]:checked+.switch {
+}
