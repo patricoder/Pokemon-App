@@ -3,8 +3,8 @@ import { ThemeProvider } from "styled-components";
 import { theme } from "./theme/theme";
 import { HomePage } from "./components/index";
 import { createContext, useState } from "react";
-import GlobalStyle from './theme/GlobalStyles';
-
+import GlobalStyle from "./theme/GlobalStyles";
+import { Helmet } from "react-helmet";
 
 //color switcher context
 export const ThemeContext = createContext(
@@ -17,31 +17,39 @@ function App() {
   switch (toggle) {
     case "light":
       theme.currentTheme = {
-        fontColor: "#000",
-        background: "#fff",
-        mainColor: "#FFC800",
+        fontColor: "#fff",
+        background: "	#f0f0f0",
+        mainColor: "#ee1515",
       };
       break;
 
     case "dark":
       theme.currentTheme = {
         fontColor: "#fff",
-        background: "#292929",
+        background: "#222224",
         mainColor: "#121212",
       };
       break;
 
     default:
       theme.currentTheme = {
-        fontColor: "#000",
-        background: "#fff",
-        mainColor: "#FFC800",
+        fontColor: "#fff",
+        background: "	#f0f0f0",
+        mainColor: "#ee1515",
       };
   }
 
   return (
     <ThemeProvider theme={theme}>
-      <GlobalStyle />
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Pokedex</title>
+        <link
+          href="https://fonts.googleapis.com/css2?family=VT323&display=swap"
+          rel="stylesheet"
+        />
+      </Helmet>
+      <GlobalStyle theme={theme.currentTheme} />
       <BrowserRouter>
         <Routes>
           <Route

@@ -1,8 +1,9 @@
 import { createGlobalStyle } from "styled-components";
-import { normalize } from "styled-normalize";
 import { theme } from "./theme";
-const GlobalStyle = createGlobalStyle`
-    ${normalize}
+
+ export default createGlobalStyle`
+    @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
     *, *::before, *::after {
         box-sizing: border-box;
     }
@@ -14,11 +15,11 @@ const GlobalStyle = createGlobalStyle`
     body {
         padding: 0;
         margin: 0;
-        font-size: 1.6rem; 
-        font-family: 'Roboto', sans-serif;
-        font-weight: 500;
+        font-size: 1.8rem; 
+        font-family: 'VT323', monospace;
+        font-weight: 400;
         line-height: 1.4;
-        background-color: white;
+        background-color: ${theme.currentTheme.background};
     }
 
     ul, ol {
@@ -40,6 +41,7 @@ const GlobalStyle = createGlobalStyle`
 
     img {
         display: block;
+        width: 100%;
     }
 
     .normal {
@@ -100,5 +102,4 @@ const GlobalStyle = createGlobalStyle`
         background-color: #333333;
     }
 `;
-
-export default GlobalStyle;
+ 

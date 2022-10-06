@@ -44,8 +44,8 @@ export let theme = {
     font_14: "1.4rem",
   },
   currentTheme: {
-    fontColor: '',
-    background: '',
-    mainColor: '',
-  }
-}
+    fontColor: "#fff",
+    background: "	#f0f0f0",
+    mainColor: "#121212",
+  },
+};

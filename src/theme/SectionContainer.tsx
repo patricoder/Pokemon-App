@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import screen_breakpoint from './screen_breakpoints';
+import styled from "styled-components";
+import screen_breakpoint from "./screen_breakpoints";
 
 const SectionContainer = styled.div`
   padding-left: 2rem;
@@ -29,7 +29,7 @@ const SectionContainer = styled.div`
     max-width: 128rem;
   }
   ${screen_breakpoint.xxxl} {
-    max-width: 136.4rem;
+    max-width: 192.5rem;
   }
 `;
 
