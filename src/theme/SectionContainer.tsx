@@ -5,6 +5,7 @@ const SectionContainer = styled.div`
   padding-left: 2rem;
   padding-right: 2rem;
   width: 100%;
+  overflow: hidden;
   ${screen_breakpoint.sm} {
     margin: auto;
     padding-left: 3rem;
@@ -14,8 +15,7 @@ const SectionContainer = styled.div`
   ${screen_breakpoint.md} {
     padding-left: 4rem;
     padding-right: 4rem;
-    max-width: none;
-    /* max-width: 76.8rem; */
+    max-width: 76.8rem;
   }
   ${screen_breakpoint.lg} {
     max-width: 99.1rem;
@@ -29,7 +29,7 @@ const SectionContainer = styled.div`
     max-width: 128rem;
   }
   ${screen_breakpoint.xxxl} {
-    max-width: 192.5rem;
+    max-width: 142rem;
   }
 `;
 

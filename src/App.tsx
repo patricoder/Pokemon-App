@@ -1,8 +1,8 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import { theme } from "./theme/theme";
-import { HomePage } from "./components/index";
-import { createContext, useState } from "react";
+import { HomePage, PageHelmet, PokemonDetails } from "./components/index";
+import { createContext, useEffect, useState } from "react";
 import GlobalStyle from "./theme/GlobalStyles";
 import { Helmet } from "react-helmet";
 
@@ -16,6 +16,8 @@ function App() {
 
   switch (toggle) {
     case "light":
+      document.body.classList.contains("dark") &&
+        document.body.classList.remove("dark");
       theme.currentTheme = {
         fontColor: "#fff",
         background: "	#f0f0f0",
@@ -24,6 +26,7 @@ function App() {
       break;
 
     case "dark":
+      document.body.classList.add("dark");
       theme.currentTheme = {
         fontColor: "#fff",
         background: "#222224",
@@ -41,27 +44,16 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Helmet>
-        <meta charSet="utf-8" />
-        <title>Pokedex</title>
-        <link
-          href="https://fonts.googleapis.com/css2?family=VT323&display=swap"
-          rel="stylesheet"
-        />
-      </Helmet>
-      <GlobalStyle theme={theme.currentTheme} />
-      <BrowserRouter>
-        <Routes>
-          <Route
-            index
-            element={
-              <ThemeContext.Provider value={{ toggle, setToggle }}>
-                <HomePage />
-              </ThemeContext.Provider>
-            }
-          />
-        </Routes>
-      </BrowserRouter>
+      <PageHelmet />
+      <GlobalStyle/>
+      <ThemeContext.Provider value={{ toggle, setToggle }}>
+        <BrowserRouter>
+          <Routes>
+            <Route index element={<HomePage />} />
+            <Route path="/pokemon/:id" element={<PokemonDetails />} />
+          </Routes>
+        </BrowserRouter>
+      </ThemeContext.Provider>
     </ThemeProvider>
   );
 }

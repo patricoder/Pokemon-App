@@ -15,7 +15,7 @@ const ColorSwitcher: React.FC = () => {
   return (
     <Label className="toggle-switch">
       <Input type="checkbox" checked={isToggled} onChange={onToggle} />
-      <Div className="switch">
+      <Div className="switch" toggle={toggle}>
         <Div className="switch-front">
           <Image src={lightIcon} alt="sun-image" />
         </Div>

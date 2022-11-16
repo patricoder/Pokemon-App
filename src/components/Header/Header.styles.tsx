@@ -8,28 +8,27 @@ interface ImageInterface {
 
 export const Wrapper = styled.div(
     ({theme }) => `
-        position: relative;
-        left: -50%;
+        // position: relative;
+        // left: -50%;
         background-color: ${theme.currentTheme.mainColor};
-        border-bottom-left-radius: 100%;
-        border-bottom-right-radius: 100%;
-        width: 200%;
+        // border-bottom-left-radius: 100%;
+        // border-bottom-right-radius: 100%;
+        // width: 200%;
         transition: background-color .3s ease-in;
     `
 );
 
 export const Container = styled(SectionContainer)`
-   position: relative;
-   display: flex;
+   display: grid;
+   grid-template-columns: repeat(3,1fr);
+   grid-template-rows: repeat(2, auto);
    justify-content: center;
    padding-top: 1rem;
-   .toggle-switch {
-    position: absolute;
-    top: 20px;
-    left: 0;
-   }
+  
 `;
+
 
 export const Image: StyledComponent<'img', any, ImageInterface, never>  = styled.img<ImageInterface>`
     max-width: 30rem;
+    margin: 0 auto;
 `;

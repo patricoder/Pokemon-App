@@ -1,8 +1,7 @@
 import { createGlobalStyle } from "styled-components";
 import { theme } from "./theme";
 
- export default createGlobalStyle`
-    @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+export default createGlobalStyle`
 
     *, *::before, *::after {
         box-sizing: border-box;
@@ -19,7 +18,16 @@ import { theme } from "./theme";
         font-family: 'VT323', monospace;
         font-weight: 400;
         line-height: 1.4;
-        background-color: ${theme.currentTheme.background};
+        background-color: #f0f0f0;
+        transition: background-color .3s ease-in;
+        &.dark {
+            background-color: #222224;
+            color: white;
+        }
+    }
+
+    #root {
+        overflow: hidden;
     }
 
     ul, ol {
@@ -33,6 +41,7 @@ import { theme } from "./theme";
 
     a {
         text-decoration: none;
+        color: white;
     }
 
     h1, h2, h3, h4, h5, p {
@@ -102,4 +111,3 @@ import { theme } from "./theme";
         background-color: #333333;
     }
 `;
- 

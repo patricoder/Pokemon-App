@@ -1,6 +1,14 @@
 import { theme } from "../../theme/theme";
-import { Wrapper, Text, Image, Types, DetailsContainer, Icon } from "./PokemonSingle.style";
-
+import {
+  Wrapper,
+  Text,
+  Image,
+  Types,
+  DetailsContainer,
+} from "./PokemonSingle.style";
+import { Link } from "react-router-dom";
+import image from "../../assets/types/bug.svg";
+import Type from "../Type/Type";
 interface PokemonSingle {
   key?: number | string;
   details: {
@@ -22,6 +30,9 @@ interface PokemonSingle {
         name: string;
       };
     }[];
+    species: {
+      url: string;
+    };
   };
 }
 
@@ -42,31 +53,25 @@ const PokemonSingle: React.FC<PokemonSingle> = ({ details }) => {
         ? `linear-gradient(${colors[0]},${colors[1]})`
         : colors[0],
   };
-
   return (
-    <Wrapper types={typesArray} style={style}>
-      <Image
-        src={details.sprites.other.dream_world.front_default}
-        alt="Pokemon Image"
-      />
-      <DetailsContainer>
-        <Text>#{details.id}</Text>
-        <Text>{details.name}</Text>
-        <Types>
-          {details.types.map((item, index) => {
-            return (
-              <Icon src={} />
-              <Text className={item.type.name} key={index}>
-                {item.type.name}
-              </Text>
-            );
-          })}
-        </Types>
-      </DetailsContainer>
-    </Wrapper>
+    <Link to={`pokemon/${details.id}`}>
+      <Wrapper types={typesArray} style={style}>
+        <Image
+          src={details.sprites.other.dream_world.front_default}
+          alt="Pokemon Image"
+        />
+        <DetailsContainer>
+          <Text>#{details.id}</Text>
+          <Text>{details.name}</Text>
+          <Types>
+            {details.types.map((item, index) => {
+              return <Type key={index} type={item.type.name} />;
+            })}
+          </Types>
+        </DetailsContainer>
+      </Wrapper>
+    </Link>
   );
 };
 
 export default PokemonSingle;
-
-//

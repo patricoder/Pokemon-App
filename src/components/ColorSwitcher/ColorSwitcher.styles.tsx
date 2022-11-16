@@ -3,6 +3,7 @@ import { ArrayDestructuringAssignment } from "typescript";
 
 interface Props {
     className?: string;
+    toggle?: string;
 }
 interface Image {
     src: string;
@@ -17,35 +18,13 @@ export const Label = styled.label`
 
 export const Input = styled.input`
   display: none;
-  /* &:checked + .switch {
-    background-color: white;
-  }
-  &:checked + .switch-back {
-    transform: rotateY(180deg);
-    left: calc(100% - 2px);
-  } */
-  &:checked + .switch {
-    transform: rotateY(180deg);
-  }
 `;
 
 export const Span = styled.div`
- 
-  /* transform-style: preserve-3d; */
-  /* &::before {
-    position: absolute;
-    content: "";
-    left: 2px;
-    top: 2px;
-    width: 21px;
-    height: 21px;
-    background-color: #333;
-    border-radius: 50%;
-    transition: transform .7s ease;
-  } */
 `;
 
-export const Div: StyledComponent<"div", any, Props, never> = styled.div<Props>`
+export const Div: StyledComponent<"div", any, Props, never> = styled.div<Props>(
+  ({toggle}) => `
   &.switch {
     position: relative;
     width: 100%;
@@ -55,6 +34,7 @@ export const Div: StyledComponent<"div", any, Props, never> = styled.div<Props>`
     display: flex;
     align-items: center;
     padding: 0 0.3rem;
+    transform: ${toggle === "light" ? "none" : "rotateY(180deg)"};
   }
   &.switch-front,
   &.switch-back {
@@ -75,5 +55,6 @@ export const Div: StyledComponent<"div", any, Props, never> = styled.div<Props>`
     color: white;
     transform: rotateY(180deg);
   }
-`;
+`);
+
 export const Image: StyledComponent<'img', any, Image, never> = styled.img<Image>``;

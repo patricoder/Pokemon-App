@@ -1,8 +1,9 @@
+
 export let theme = {
   colors: {
     black: "#19191d",
     white: "#ffffff",
-    gray: "#99999b",
+    gray: "#DCDCDC",
     grayLight: "#f5f5f5",
     grayDark: "#505056",
     red: "#ea5d60",
@@ -34,18 +35,17 @@ export let theme = {
     extraBold: "900",
   },
   font: {
-    headingM: "3rem",
-    headingD: "4.2rem",
-    titleM: "2.2rem",
+    font_30: "3rem",
+    font_42: "4.2rem",
     titleD: "2.8rem",
-    subheadingM: "1.8rem",
-    subheadingD: "2.2rem",
-    paragraph: "1.6rem",
+    font_18: "1.8rem",
+    font_22: "2.2rem",
+    font_16: "1.6rem",
     font_14: "1.4rem",
   },
   currentTheme: {
     fontColor: "#fff",
-    background: "	#f0f0f0",
+    background: "#222224",
     mainColor: "#121212",
   },
 };

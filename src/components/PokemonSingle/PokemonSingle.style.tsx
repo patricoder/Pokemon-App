@@ -1,15 +1,16 @@
 import styled from "styled-components";
 import { StyledComponent } from "styled-components";
+import screen_breakpoints from "../../theme/screen_breakpoints";
 interface Type {
   color?: string;
 }
 
-interface Types {
+interface WrapperTypes {
   types: string[];
 }
 
-export const Wrapper: StyledComponent<"div", any, Types, never> =
-  styled.div<Types>(
+export const Wrapper: StyledComponent<"div", any, WrapperTypes, never> =
+  styled.div<WrapperTypes>(
     ({ types }) => `
   cursor: pointer;
   border-radius: 2rem;
@@ -19,6 +20,9 @@ export const Wrapper: StyledComponent<"div", any, Types, never> =
   flex-direction: row-reverse;
   align-items: center;
   justify-content: space-between;
+  ${screen_breakpoints.lg} {
+    flex-direction: column;
+  }
 `
   );
 
@@ -35,19 +39,14 @@ export const Image = styled.img`
   max-width: 12.5rem;
   height: 14rem;
   margin-right: 2rem;
+  ${screen_breakpoints.lg} {
+    margin-right: 0;
+  }
 `;
-
-export const Icon = styled.img``;
 
 export const Types = styled.div`
   padding-top: 1.5rem;
   display: flex;
   gap: 1rem;
-  p {
-    font-size: 2rem;
-    text-align: center;
-    padding: 0.2rem 1.5rem;
-    border-radius: .4rem;
-    box-shadow: rgb(0 0 0 / 16%) 0px 3px 6px;
-  }
+
 `;

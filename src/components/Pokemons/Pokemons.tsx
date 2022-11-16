@@ -1,6 +1,7 @@
 import { Wrapper, Container } from "./Pokemons.styles";
 import { useState, useEffect } from "react";
 import PokemonSingle from "../PokemonSingle/PokemonSingle";
+import Loading from "../Loading/Loading";
 
 export interface Pokemons {
   name: string;
@@ -21,12 +22,16 @@ export interface Pokemons {
       name: string;
     };
   }[];
+  species: {
+    url: string;
+  };
 }
 
 const Pokemons: React.FC = () => {
   const [pokemons, setPokemons] = useState<Array<Pokemons>>([]);
   //   const [pokemonsWithDetails, setPokemonsWithDetails] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [fetched, setFetched] = useState(false);
   const [limit, setLimit] = useState(151);
   const [offset, setOffset] = useState(0);
   // fetch(`${process.env.REACT_APP_API_ENDPOINT}/pokemon?limit=100000&offset=0`)
@@ -45,7 +50,6 @@ const Pokemons: React.FC = () => {
         }
       })
       .then((data) => {
-        console.log(data.results);
         data.results.map((item: Pokemons) => {
           return fetch(item.url)
             .then((res) => {
@@ -55,6 +59,7 @@ const Pokemons: React.FC = () => {
             })
             .then((data) => {
               setPokemons((prevState) => [...prevState, data]);
+              setFetched(!fetched);
             })
             .catch((error) => console.log(error));
         });
@@ -64,20 +69,18 @@ const Pokemons: React.FC = () => {
 
   useEffect(() => {
     return () => {
-      fetchPokemons();
+      !fetched && fetchPokemons();
     };
   }, []);
-
   return (
     <Wrapper>
       <Container>
         {loading ? (
-          <>loading...</>
+          <Loading />
         ) : (
           <>
             {pokemons.map((item) => {
-              console.log(item);
-              return <PokemonSingle key={item.id} details={item}/>;
+              return <PokemonSingle key={item.id} details={item} />;
             })}
           </>
         )}
