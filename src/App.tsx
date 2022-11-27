@@ -2,9 +2,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import { theme } from "./theme/theme";
 import { HomePage, PageHelmet, PokemonDetails } from "./components/index";
-import { createContext, useEffect, useState } from "react";
+import { createContext, useState } from "react";
 import GlobalStyle from "./theme/GlobalStyles";
-import { Helmet } from "react-helmet";
 
 //color switcher context
 export const ThemeContext = createContext(
@@ -12,7 +11,9 @@ export const ThemeContext = createContext(
 );
 
 function App() {
-  const [toggle, setToggle] = useState("light");
+  const [toggle, setToggle] = useState("dark");
+  const [limit, setLimit] = useState<number>(151);
+  const [offset, setOffset] = useState<number>(0);
 
   switch (toggle) {
     case "light":
@@ -45,7 +46,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <PageHelmet />
-      <GlobalStyle/>
+      <GlobalStyle />
       <ThemeContext.Provider value={{ toggle, setToggle }}>
         <BrowserRouter>
           <Routes>

@@ -17,7 +17,11 @@ export const Container = styled(SectionContainer)(
           display: grid;
           flex-wrap: wrap;
           grid-template-columns: repeat(1, 1fr);
+          // grid-template-rows: minmax(10px, 60px);
           grid-gap: 1rem 2rem;
+          ${screen_breakpoints.sm} {
+            grid-template-columns: repeat(2, 1fr);
+          }
           ${screen_breakpoints.lg} {
             grid-template-columns: repeat(4, 1fr);
           }

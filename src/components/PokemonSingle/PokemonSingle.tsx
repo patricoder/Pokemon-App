@@ -23,6 +23,9 @@ interface PokemonSingle {
         dream_world: {
           front_default: string;
         };
+        ["official-artwork"]: {
+          front_default: string;
+        };
       };
     };
     types: {
@@ -47,6 +50,9 @@ const PokemonSingle: React.FC<PokemonSingle> = ({ details }) => {
     });
   }
 
+  const image1 = details.sprites.other.dream_world.front_default;
+  const image2 = details.sprites.other["official-artwork"].front_default;
+
   let style = {
     background:
       colors.length === 2
@@ -56,10 +62,7 @@ const PokemonSingle: React.FC<PokemonSingle> = ({ details }) => {
   return (
     <Link to={`pokemon/${details.id}`}>
       <Wrapper types={typesArray} style={style}>
-        <Image
-          src={details.sprites.other.dream_world.front_default}
-          alt="Pokemon Image"
-        />
+        <Image src={image1 !== null ? image1 : image2} alt="Pokemon Image" loading="lazy"/>
         <DetailsContainer>
           <Text>#{details.id}</Text>
           <Text>{details.name}</Text>

@@ -2,6 +2,7 @@ import { Wrapper, Container } from "./Pokemons.styles";
 import { useState, useEffect } from "react";
 import PokemonSingle from "../PokemonSingle/PokemonSingle";
 import Loading from "../Loading/Loading";
+import Filters from "../Filters/Filters";
 
 export interface Pokemons {
   name: string;
@@ -13,6 +14,9 @@ export interface Pokemons {
     front_default: string;
     other: {
       dream_world: {
+        front_default: string;
+      };
+      ["official-artwork"]: {
         front_default: string;
       };
     };
@@ -28,24 +32,24 @@ export interface Pokemons {
 }
 
 const Pokemons: React.FC = () => {
-  const [pokemons, setPokemons] = useState<Array<Pokemons>>([]);
-  //   const [pokemonsWithDetails, setPokemonsWithDetails] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [fetched, setFetched] = useState(false);
-  const [limit, setLimit] = useState(151);
-  const [offset, setOffset] = useState(0);
-  // fetch(`${process.env.REACT_APP_API_ENDPOINT}/pokemon?limit=100000&offset=0`)
-  // fetch(`${process.env.REACT_APP_API_ENDPOINT}/region`)
-  //   fetch(`${process.env.REACT_APP_API_ENDPOINT}/pokemon/1`);
 
-  const fetchPokemons = () => {
-    //download all pokemons
+
+  
+  const [pokemons, setPokemons] = useState<Array<Pokemons>>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [limit, setLimit] = useState<number>(151);
+  const [offset, setOffset] = useState<number>(0);
+
+  const fetchPokemons = (controller: any) => {
+    console.log("##fetch");
     fetch(
-      `${process.env.REACT_APP_API_ENDPOINT}/pokemon?limit=${limit}&offset=${offset}`
+      `${process.env.REACT_APP_API_ENDPOINT}/pokemon?limit=${limit}&offset=${offset}`,
+      {
+        signal: controller.signal,
+      }
     )
       .then((res) => {
         if (res.ok && res.status === 200) {
-          setLoading(false);
           return res.json();
         }
       })
@@ -59,21 +63,32 @@ const Pokemons: React.FC = () => {
             })
             .then((data) => {
               setPokemons((prevState) => [...prevState, data]);
-              setFetched(!fetched);
             })
             .catch((error) => console.log(error));
         });
+        setLoading(false);
       })
       .catch((error) => console.log(error));
   };
 
   useEffect(() => {
+    setPokemons([]);
+    const controller = new AbortController();
+    console.log("##render", controller.signal);
+    fetchPokemons(controller);
+
     return () => {
-      !fetched && fetchPokemons();
+      controller.abort();
+      console.log("##cln");
     };
-  }, []);
+  }, [limit, offset]);
   return (
     <Wrapper>
+      <Filters
+        setLimit={setLimit}
+        setOffset={setOffset}
+        setPokemons={setPokemons}
+      />
       <Container>
         {loading ? (
           <Loading />

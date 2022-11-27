@@ -21,6 +21,7 @@ export const Container = styled(SectionContainer)`
 
 export const Wrapper: StyledComponent<"div", any, Image, never> = styled.div`
   width: 100%;
+  min-height: 100vh;
 `;
 
 export const Header = styled.div`
@@ -57,7 +58,7 @@ export const Bold = styled.p(
   min-width: 10rem;
   font-family: sans-serif;
   font-weight: ${theme.weight.semiBold};
-  font-size: ${theme.font.font_14}
+  font-size: ${theme.font.font_14};
 `
 );
 

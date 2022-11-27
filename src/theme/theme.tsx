@@ -39,6 +39,7 @@ export let theme = {
     font_42: "4.2rem",
     titleD: "2.8rem",
     font_18: "1.8rem",
+    font_20: "2rem",
     font_22: "2.2rem",
     font_16: "1.6rem",
     font_14: "1.4rem",

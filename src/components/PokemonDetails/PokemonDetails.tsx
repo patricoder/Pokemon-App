@@ -45,6 +45,9 @@ interface Pokemon {
         dream_world: {
           front_default: string;
         };
+        ["official-artwork"]: {
+          front_default: string;
+        };
       };
     };
     stats: {
@@ -140,6 +143,8 @@ const PokemonDetails: React.FC = () => {
     const stats = response.data.stats.map((item) => item);
     setMaxValue(Math.max(...stats.map((item) => item.base_stat)));
 
+    const image1 = response.data.sprites.other.dream_world.front_default;
+    const image2 = response.data.sprites.other["official-artwork"].front_default;
     setInfo({
       name: response.data.name,
       height: response.data.height,
@@ -147,7 +152,7 @@ const PokemonDetails: React.FC = () => {
       types,
       abilities,
       generation,
-      image: response.data.sprites.other.dream_world.front_default,
+      image: image1 !== null ? image1 : image2,
       stats,
     });
 
@@ -159,6 +164,7 @@ const PokemonDetails: React.FC = () => {
 
     do {
       evoArr.push(evoData.species);
+      setEvo(evoArr);
       //@ts-ignore
       evoData = evoData.evolves_to[0];
       //@ts-ignore
@@ -249,7 +255,7 @@ const PokemonDetails: React.FC = () => {
           </Container>
         </Wrapper>
       ) : (
-        <Loading/>
+        <Loading />
       )}
     </>
   );
