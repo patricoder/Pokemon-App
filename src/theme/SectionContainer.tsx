@@ -6,6 +6,7 @@ const SectionContainer = styled.div`
   padding-right: 2rem;
   width: 100%;
   overflow: hidden;
+  display: flex;
   ${screen_breakpoint.sm} {
     margin: auto;
     padding-left: 3rem;

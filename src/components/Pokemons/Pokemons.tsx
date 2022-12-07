@@ -32,16 +32,12 @@ export interface Pokemons {
 }
 
 const Pokemons: React.FC = () => {
-
-
-  
   const [pokemons, setPokemons] = useState<Array<Pokemons>>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [limit, setLimit] = useState<number>(151);
   const [offset, setOffset] = useState<number>(0);
 
   const fetchPokemons = (controller: any) => {
-    console.log("##fetch");
     fetch(
       `${process.env.REACT_APP_API_ENDPOINT}/pokemon?limit=${limit}&offset=${offset}`,
       {
@@ -74,21 +70,22 @@ const Pokemons: React.FC = () => {
   useEffect(() => {
     setPokemons([]);
     const controller = new AbortController();
-    console.log("##render", controller.signal);
     fetchPokemons(controller);
 
     return () => {
       controller.abort();
-      console.log("##cln");
     };
   }, [limit, offset]);
   return (
     <Wrapper>
-      <Filters
-        setLimit={setLimit}
-        setOffset={setOffset}
-        setPokemons={setPokemons}
-      />
+      <Container>
+        <Filters
+          setLimit={setLimit}
+          setOffset={setOffset}
+          setPokemons={setPokemons}
+        />
+      </Container>
+
       <Container>
         {loading ? (
           <Loading />

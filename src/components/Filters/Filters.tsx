@@ -1,4 +1,5 @@
 import React from "react";
+
 import { Select, Option } from "./Filters.styles";
 import { regions } from "../HomePage/HomePage.data";
 
@@ -9,7 +10,7 @@ interface Filter {
 }
 
 const Filters: React.FC<Filter> = ({ setLimit, setOffset, setPokemons }) => {
-  const handleChangeRegion = (e: React.ChangeEvent<HTMLSelectElement>) => {
+  const handleChangeRegion = (e: any) => {
     const filteredRegion = regions.filter(
       (item) => item.name === e.target.value && item
     )[0];
@@ -29,6 +30,8 @@ const Filters: React.FC<Filter> = ({ setLimit, setOffset, setPokemons }) => {
         );
       })}
     </Select>
+
+    // <Select options={options} />
   );
 };
 
