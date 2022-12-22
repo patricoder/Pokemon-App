@@ -1,0 +1,32 @@
+{
+  "files": {
+    "main.js": "/patricoder.github.io/Pokemon-App/static/js/main.e96dffc7.js",
+    "static/media/pokemon-logo-vector.png": "/patricoder.github.io/Pokemon-App/static/media/pokemon-logo-vector.8b716c760ed7f130db06.png",
+    "static/media/pokeball-pokemon-svgrepo-com.svg": "/patricoder.github.io/Pokemon-App/static/media/pokeball-pokemon-svgrepo-com.e57f7ae634ea599f04f057a700d4bbe2.svg",
+    "static/media/pokeball.svg": "/patricoder.github.io/Pokemon-App/static/media/pokeball.e57f7ae634ea599f04f057a700d4bbe2.svg",
+    "static/media/moon-svgrepo-com.svg": "/patricoder.github.io/Pokemon-App/static/media/moon-svgrepo-com.0f9b2e9c3b663b4b4faab3bf4446ec82.svg",
+    "static/media/dragon.svg": "/patricoder.github.io/Pokemon-App/static/media/dragon.9d32757b191cbbaea8d4d418ff5d4ed3.svg",
+    "static/media/fire.svg": "/patricoder.github.io/Pokemon-App/static/media/fire.e0bd7fcab2121e7ac1ffbbe09a3ca5dd.svg",
+    "static/media/psychic.svg": "/patricoder.github.io/Pokemon-App/static/media/psychic.67439878eaa68ee726de9944c7ff9757.svg",
+    "static/media/fairy.svg": "/patricoder.github.io/Pokemon-App/static/media/fairy.767c2f5699eb5f1120f19c7a76b41a1a.svg",
+    "static/media/bug.svg": "/patricoder.github.io/Pokemon-App/static/media/bug.204df919b74456c6dc729be0aa67759b.svg",
+    "static/media/rock.svg": "/patricoder.github.io/Pokemon-App/static/media/rock.61a8428da62eeab93746d62969c71989.svg",
+    "static/media/ice.svg": "/patricoder.github.io/Pokemon-App/static/media/ice.cd2f90437e3fe39235a9adca860ce2d2.svg",
+    "static/media/ghost.svg": "/patricoder.github.io/Pokemon-App/static/media/ghost.ddf268314aed78d0524d47aa90e49187.svg",
+    "static/media/flying.svg": "/patricoder.github.io/Pokemon-App/static/media/flying.d17785038a59f3ce2121e423a2ded0f7.svg",
+    "static/media/fighting.svg": "/patricoder.github.io/Pokemon-App/static/media/fighting.f20d1bd24f0cde62bb378b672f0178aa.svg",
+    "static/media/poison.svg": "/patricoder.github.io/Pokemon-App/static/media/poison.43956925ad0376b77c7e3921caa3dc30.svg",
+    "static/media/steel.svg": "/patricoder.github.io/Pokemon-App/static/media/steel.cb91a92a3b5197e2cf61bc66592f42d1.svg",
+    "index.html": "/patricoder.github.io/Pokemon-App/index.html",
+    "static/media/ground.svg": "/patricoder.github.io/Pokemon-App/static/media/ground.e567f4fc3f3422598757977865de57d8.svg",
+    "static/media/dark.svg": "/patricoder.github.io/Pokemon-App/static/media/dark.27fdc7ed2bd3294b9838b1882c20e225.svg",
+    "static/media/water.svg": "/patricoder.github.io/Pokemon-App/static/media/water.b6d13329535e4be9e9b4f8da4694faba.svg",
+    "static/media/electric.svg": "/patricoder.github.io/Pokemon-App/static/media/electric.bc35c5a3faf04b605c00967b94e93693.svg",
+    "static/media/grass.svg": "/patricoder.github.io/Pokemon-App/static/media/grass.e09623e3345d5bf5286f5323dd923c60.svg",
+    "static/media/normal.svg": "/patricoder.github.io/Pokemon-App/static/media/normal.2ba66dd583ebf70eb414a0cfd20a48be.svg",
+    "main.e96dffc7.js.map": "/patricoder.github.io/Pokemon-App/static/js/main.e96dffc7.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.e96dffc7.js"
+  ]
+}
